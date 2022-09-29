@@ -4,10 +4,7 @@ pipeline {
         choice choices: ['Dev', 'Staging', 'Production'], description: "Choose which environment to push changes to.", name: "DEPLOY_TO"
     }
   tools {
-    maven any 
-    parameters {
-        choice choices: ['3.5.4', '3.5.6', '3.6.7'], description: "Choose which version ", name: "maven"
-    }
+    maven '3.5.4'
   }
   triggers {
         pollSCM "* * * * *"
