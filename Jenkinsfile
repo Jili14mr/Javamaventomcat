@@ -1,28 +1,23 @@
 pipeline {
   agent any
   tools {
-    maven 'maven-3.6.3' 
+    maven 'maven-3.5.4' 
   }
+  triggers {
+        pollSCM "* * * * *"
+    }
   stages {
     stage ('Build') {
       steps {
         sh 'mvn clean package'
       }
     }
-  stages {
-    stage('GIT') {
-      steps {
-        git branch: "${params.BRANCH}", url: 'https://github.com/jenkinsci/git-parameter-plugin.git'
-      }
-    }
   stage ('Deploy') {
       steps {
         script {
-          deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://dayal-test.letspractice.tk:8081')], contextPath: '/pipeline', onFailure: false, war: 'webapp/target/*.war' 
-        }
+          deploy adapters: [tomcat9(credentialsId: 'd839536b-c6f6-4f3a-bf3f-6c38ed4fb6b3', path: '', url: 'http://3.238.147.187:8080/')], contextPath: null, war: ' **/*.war' 
       }
     }
-  }
-}
+  
     
     
