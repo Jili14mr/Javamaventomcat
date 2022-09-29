@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                node('jenkins'){
                 // Get some code from a GitHub repository
                 git 'https://github.com/Jili14mr/Javamaventomcat.git'
 
@@ -17,6 +18,7 @@ pipeline {
 
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
             }
         }
        stage ('Tomcat Deploy') {
