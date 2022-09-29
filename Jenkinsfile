@@ -1,6 +1,7 @@
 pipeline {
-  agent  {
-  label params.AGENT == "any" ? "" : params.AGENT     }     
+  agent {
+  label params.AGENT == "any" ? "" : params.AGENT     
+    }     
   parameters { 
         choice(name: "AGENT", choices: [ "any","Tom","Tomcat_maven"])     
     }
