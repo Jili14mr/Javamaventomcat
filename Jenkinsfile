@@ -3,7 +3,7 @@ pipeline {
   label params.AGENT == "any" ? "" : params.AGENT     
     }     
   parameters { 
-        choice(name: "AGENT", choices: [ "any","Tom","Tomcat_maven"])     
+        choice(name: "AGENT", choices: ["any","Tom","Tomcat_maven"])     
     }
   tools {
     maven '3.5.4'
