@@ -5,9 +5,6 @@ pipeline {
   parameters { 
         choice(name: "AGENT", choices: [ "any","Tom","Tomcat_maven"])     
     }
-  parameters {
-        choice choices: ['Dev', 'Staging', 'Production'], description: "Choose which environment to push changes to.", name: "DEPLOY_TO"
-    }
   tools {
     maven '3.5.4'
   }
