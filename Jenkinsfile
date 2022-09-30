@@ -1,5 +1,7 @@
 pipeline {
   agent any
+  parameters { 
+       choice(name: 'ENV', choices: ['dev', 'uat', 'prod'], description: '') }
   tools {
     maven '3.5.4' 
   }
