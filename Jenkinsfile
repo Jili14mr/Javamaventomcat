@@ -25,14 +25,6 @@ pipeline {
    // string(value: "${ArtifactName}", description: 'Provide Value for jar file', name: 'ArtifactName')
 //}
     stages {
-        stage('start'){
-            steps {
-                sh '''
-                    echo "============ start =============="
-		    
-                '''
-            }
-        }
         
 	stage("Read Manifest Config") {
 	node {
@@ -40,62 +32,13 @@ pipeline {
 		echo "configVal: " + configVal
 	}
 }
-	    
-       // stage('checkout'){
-            //steps{
-		    //git branch: '${Branch}', url: '${Git_url2}'
-             //  git branch: 'master', credentialsId: 'git_key_auth', url: 'https://github.com/niwasawa/java-hello-world-with-maven.git'
-               
-				//}
-            
-        
-             
-                
-            
-        }
-        
-        
-        stage('Build'){
-            steps {
-                //git 'https://github.com/jabedhasan21/java-hello-world-with-maven'
-               sh 'mvn clean install'
-		
-            }
-       }
-        
-        stage('DEPLOYMENT'){
-            steps {
-                sh '''
-               
-                #!/bin/bash +x
-                cd /var/lib/jenkins/workspace/${UAIName}-${AppName}-${Cluster}-${ArtifactName}-Buildjob
-                cd target
-                ls -alt
-                
-                  
-                destination_Artifactory=https://artifactory.build.ge.com/artifactory/
-                path=SXZZG/GPWebUtility/Applications/${UAI}/${AppName}/${Environment}/${Cluster}/${BUILD_NUMBER}/${ArtifactName}
-                curl -k  --user ${artifactory_log_User}:${artifactory_log_Password} -X PUT $destination_Artifactory/$path -H 'Content-Type: application/data' --upload-file ${ArtifactName}
-              
-              
-              
-                   '''
 
-            }
-        }
+    }    
         
-        
-        
+}     
 
 
-       stage('DEPLOYMENT TO SERVER'){
-            steps {
-                sh '''
-                    echo "============ done =============="
-                '''
-            }
-        }
-    }
+ 
     
     
 
