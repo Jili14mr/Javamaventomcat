@@ -1,0 +1,3 @@
+environment:
+  ArtifcatFile: MYAPP
+  Environment: uat
