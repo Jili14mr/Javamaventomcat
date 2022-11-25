@@ -34,6 +34,13 @@ pipeline {
             }
         }
         
+	stage("Read Manifest Config") {
+	steps{
+		def configVal = readYaml file: "manifest.yml"
+		echo "configVal: " + configVal
+	}
+}
+	    
        // stage('checkout'){
             //steps{
 		    //git branch: '${Branch}', url: '${Git_url2}'
