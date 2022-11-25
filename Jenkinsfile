@@ -12,18 +12,18 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10'))
     }
     
-  parameters {
+ // parameters {
         
           
-          string(value: "", description: 'master', name: 'Branch')
+         // string(value: "", description: 'master', name: 'Branch')
 
-     string(Value: "${ArtifcatFile}", description: 'Provide Value for jar file', name: 'ArtifcatFile')
-    string(value: "'${UAI}", description: 'Provide Value for jar file', name: 'UAI')
-    string(value: "${AppName}", description: 'Provide Value for jar file', name: 'AppName')
-    string(value: "${Environment}", description: 'Provide Value for jar file', name: 'Environment')
-    string(value: "${Cluster}", description: 'Provide Value for jar file', name: 'Cluster')
-    string(value: "${ArtifactName}", description: 'Provide Value for jar file', name: 'ArtifactName')
-}
+    // string(Value: "${ArtifcatFile}", description: 'Provide Value for jar file', name: 'ArtifcatFile')
+    //string(value: "'${UAI}", description: 'Provide Value for jar file', name: 'UAI')
+    //string(value: "${AppName}", description: 'Provide Value for jar file', name: 'AppName')
+   // string(value: "${Environment}", description: 'Provide Value for jar file', name: 'Environment')
+    //string(value: "${Cluster}", description: 'Provide Value for jar file', name: 'Cluster')
+   // string(value: "${ArtifactName}", description: 'Provide Value for jar file', name: 'ArtifactName')
+//}
     stages {
         stage('start'){
             steps {
