@@ -29,7 +29,7 @@ pipeline {
 	stage("Read Manifest Config") {
 	 steps {
 		def configVal = readYaml file: "manifest.yml"
-		sh echo "configVal: " + configVal
+		 echo "configVal: " + configVal
 	}
 }
 
